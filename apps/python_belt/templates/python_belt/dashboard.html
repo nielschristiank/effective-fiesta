@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'python_belt/css/main.css' %}">
+    <title>My Wish List</title>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+        <h1>Hello, {{logged_user.username}}! </h1>
+          <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+      </header>
+
+      <div id="main_container">
+        <h5> Your Wish List </h5>
+        <table>
+          <thead>
+            <th>Item</th><th>Added By</th><th>Date Added</th><th>Action</th>
+          </thead>
+          <tbody>
+            {% for wish in wish_items %}
+            <tr>
+              <td><a href="{% url 'show_item' id=wish.item.id %}">{{wish.item.item_name}}</a></td>
+              <td>{{wish.item.added_by.name}}</td><td>{{wish.item.created_at|date:'M d Y'}}</td>
+              <td>{% if logged_user.id == wish.item.added_by.id %}<a href="{% url 'delete_item' id=wish.item.id %}">Delete Item</a>
+                  {% elif logged_user.id in wish.item.in_wishlist %}<a href="{% url 'remove_wish_item' id=wish.id %}">Remove from Wishlist</a>
+                  {% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h5> Other Users' Wish List </h5>
+        <table>
+          <thead>
+            <th>Item</th><th>Added By</th><th>Date Added</th><th>Action</th>
+          </thead>
+          <tbody>
+            {% for item in other_items %}
+            <tr>
+              <td><a href="{% url 'show_item' id=item.id %}">{{item.item_name}}</a></td>
+              <td>{{item.added_by.name}}</td><td>{{item.created_at|date:'M d Y'}}</td>
+              <td><a href="{% url 'add_wish_item' id=item.id %}">Add to Wish List</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <footer>
+          <ul>
+            <li><a href="{% url 'show_add_item' %}">Add Item</a></li>
+          </ul>
+
+      </div>
+    </div>
+  </body>
+</html>

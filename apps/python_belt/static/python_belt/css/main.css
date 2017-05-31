@@ -1,0 +1,68 @@
+
+
+body {
+  font-family: sans-serif;
+}
+
+header ,footer {
+  width: 90%;
+}
+header ul , footer ul{
+    list-style: none;
+    float: right;
+}
+
+header h1, header ul, header li{
+  display: inline-block;
+}
+
+table , thead{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td , th{
+  border-left: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+tr:nth-child(odd) {
+  background-color: #e5eaff;
+}
+
+th {
+  background-color: silver;
+}
+
+fieldset#add_item {
+  width: 65%;
+}
+
+.error {
+  color: red;
+}
+.success{
+  color:green;
+}
+
+#other_books {
+  border: 1px solid black;
+  overflow: scroll;
+  height: 300px;
+  vertical-align: top;
+  padding: 10px;
+}
+
+#wrapper {
+  width: 100%;
+  padding: 2% 10% 10% 2%;
+}
+
+div#login, div#register {
+  width: 40%;
+  display: inline-block;
+  margin: auto;
+}
+div#login {
+  vertical-align: top;
+}

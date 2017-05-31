@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'python_belt/css/main.css' %}">
+    <title>Create Item</title>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+        <h1>Create a New Wish List Item</h1>
+          <ul>
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+      </header>
+
+      <fieldset id="add_item">
+        <legend>Create</legend>
+        <form action="{% url 'add_item' %}" method="POST">
+          {% csrf_token %}
+          <label for="item_name">Item/Product: <input type="text" name="item_name" placeholder="Enter Item Name..."></label><br>
+          <input type="submit" value="Add">
+        </form>
+      </fieldset>
+
+    </div>
+
+  </body>
+</html>
