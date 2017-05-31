@@ -21,7 +21,7 @@
         <legend>Create</legend>
         <form action="{% url 'add_item' %}" method="POST">
           {% csrf_token %}
-          <label for="item_name">Item/Product: <input type="text" name="item_name" placeholder="Enter Item Name..."></label><br>
+          <label>Item/Product: <input type="text" name="item_name" placeholder="Enter Item Name..."></label><br>
           <input type="submit" value="Add">
         </form>
       </fieldset>

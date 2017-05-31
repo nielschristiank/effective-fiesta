@@ -21,11 +21,11 @@
           <legend><strong>Register</strong></legend>
           <form action="{% url 'register' %}" method="POST">
             {% csrf_token %}
-            <label for="name">Name: <input type="text" name="name"></label><br>
-            <label for="username">Username: <input type="text" name="username"></label><br>
-            <label for="password">Password: <input type="password" name="password"></label><br>
-            <label for="passconf">Confirm Password: <input type="password" name="passconf"></label><br>
-            <label for="date_hired">Date Hired: <input type="date" name="date_hired"></label><br>
+            <label>Name: <input type="text" name="name"></label><br>
+            <label>Username: <input type="text" name="username"></label><br>
+            <label>Password: <input type="password" name="password"></label><br>
+            <label>Confirm Password: <input type="password" name="passconf"></label><br>
+            <label>Date Hired: <input type="date" name="date_hired"></label><br>
             <input type="Submit" value="Register">
           </form>
         </fieldset>
@@ -35,8 +35,8 @@
           <legend><strong>Login</strong></legend>
           <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
-            <label for="username">Username: <input type="text" name="username"><br>
-            <label for="password">Password: <input type="password" name="password"></label><br>
+            <label>Username: <input type="text" name="username"></label><br>
+            <label>Password: <input type="password" name="password"></label><br>
             <input type="Submit" value="Login">
           </form>
         </fieldset>
