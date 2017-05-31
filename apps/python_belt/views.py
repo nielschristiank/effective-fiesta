@@ -10,9 +10,6 @@ import bcrypt
 
 # VIEWS
 def index(request):
-    pass
-
-def index(request):
     if 'logged_user' in request.session:
         return redirect(reverse('dashboard'))
     return render(request, 'python_belt/index.html')

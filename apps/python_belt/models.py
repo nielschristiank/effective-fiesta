@@ -44,7 +44,7 @@ class UserManager(models.Manager):
         if not NAME_REGEX.match(postData['name']):
             errors.append('Name must be minimum 3 characters and can only contain letters, and - if neccessary')
         if not postData['date_hired']:
-            errors.append('Nate hired cannot be blank')
+            errors.append('Date hired cannot be blank')
         if not PW_REGEX.match(postData['password']):
             errors.append('password must be minimum 8 characters')
         if postData['password'] != postData['passconf']:
@@ -74,5 +74,3 @@ class Wishlist(models.Model):
     item = models.ForeignKey(Item, related_name="item_wishlist")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    # def in_wishlist(self):
-    #     return list(self.all().values_list('user_id', flat=True))
