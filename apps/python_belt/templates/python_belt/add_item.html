@@ -17,6 +17,14 @@
           </ul>
       </header>
 
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <small><li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></small>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
       <fieldset id="add_item">
         <legend>Create</legend>
         <form action="{% url 'add_item' %}" method="POST">
