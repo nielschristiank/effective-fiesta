@@ -63,6 +63,11 @@ def show_add_item(request):
 
 def add_item(request):
     if request.method == "POST":
+        user = user = User.objects.get(pk=request.session.get('logged_user'))
+        check_item = Item.objects.filter(item_name=request.POST['item_name'])
+        if check_item:
+            messages.error(request, 'Item already exists')
+            return redirect('show_add_item')
         if not request.POST['item_name']:
             messages.error(request, 'Item name cannot be empty')
             return redirect('show_add_item')
